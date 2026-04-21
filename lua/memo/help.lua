@@ -156,12 +156,17 @@ function M.show_help()
       max_width = width
     end
   end
-  vim.api.nvim_win_set_width(win, max_width + 4)
+  vim.api.nvim_win_set_width(win, max_width + 8)
+  
+  vim.wo[win].number = false
+  vim.wo[win].relativenumber = false
+  vim.wo[win].signcolumn = "no"
+  vim.wo[win].foldcolumn = "0"
+  vim.wo[win].spell = false
   
   vim.bo[buf].filetype = "markdown"
   vim.bo[buf].modifiable = false
   vim.bo[buf].bufhidden = "wipe"
-  vim.wo[win].spell = false
   
   vim.keymap.set("n", "q", ":q<CR>", { buffer = buf, silent = true, noremap = true })
 end
