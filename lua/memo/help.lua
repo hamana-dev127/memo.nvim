@@ -108,6 +108,7 @@ function M.show_help()
   vim.bo[buf].filetype = "markdown"
   vim.bo[buf].modifiable = false
   vim.bo[buf].bufhidden = "wipe"
+  vim.wo[win].spell = false
   
   vim.keymap.set("n", "q", ":q<CR>", { buffer = buf, silent = true, noremap = true })
 end
