@@ -115,7 +115,7 @@ local cheat_sheet_content = {
   "",
   "---",
   "",
-  "## 7. 引用とリンク (Quotes & Links)",
+  "## 7. 引用・リンク・画像 (Quotes, Links & Images)",
   "",
   "### 引用",
   "[Source]",
@@ -136,6 +136,15 @@ local cheat_sheet_content = {
   "",
   "[Output]",
   "[表示テキスト](https://example.com)",
+  "",
+  "### 画像",
+  "[Source]",
+  "```text",
+  "![代替テキスト](https://example.com/image.png)",
+  "```",
+  "",
+  "[Output]",
+  "![代替テキスト](https://example.com/image.png)",
 }
 
 function M.show_help()
