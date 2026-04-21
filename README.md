@@ -35,7 +35,7 @@ Neovimのプラグイン設定ディレクトリ（例: `~/.config/nvim/lua/plug
 
 ```lua
 return {
-  "Naruaki-Yokohama/memo.nvim",
+  "hamana-dev127/memo.nvim",
   config = function()
     require("memo").setup({
       -- 以下はデフォルト値です。必要に応じて変更してください。
