@@ -6,7 +6,7 @@ function M.setup_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
 
   -- Turn off spellcheck while memo is active
-  vim.bo[bufnr].spell = false
+  vim.opt_local.spell = false
 
   -- Auto show help if configured
   if require("memo.config").options.auto_show_help then
@@ -153,7 +153,7 @@ function M.teardown_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
   pcall(vim.keymap.del, "i", "<Tab>", { buffer = bufnr })
   pcall(vim.keymap.del, "i", "<CR>", { buffer = bufnr })
-  vim.bo[bufnr].spell = true
+  vim.opt_local.spell = true
 end
 
 return M
