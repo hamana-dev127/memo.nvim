@@ -5,6 +5,15 @@ local last_tab_time = 0
 function M.setup_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
 
+  -- Turn off spellcheck while memo is active
+  vim.bo[bufnr].spell = false
+
+  -- Auto show help if configured
+  if require("memo.config").options.auto_show_help then
+    require("memo.help").show_help()
+    vim.cmd("wincmd p") -- return focus to memo buffer
+  end
+
   -- Handle Smart Tab
   vim.keymap.set("i", "<Tab>", function()
     if vim.fn.pumvisible() == 1 then
@@ -144,6 +153,7 @@ function M.teardown_buffer()
   local bufnr = vim.api.nvim_get_current_buf()
   pcall(vim.keymap.del, "i", "<Tab>", { buffer = bufnr })
   pcall(vim.keymap.del, "i", "<CR>", { buffer = bufnr })
+  vim.bo[bufnr].spell = true
 end
 
 return M

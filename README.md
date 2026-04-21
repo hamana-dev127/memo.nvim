@@ -41,6 +41,7 @@ return {
       -- 以下はデフォルト値です。必要に応じて変更してください。
       memo_dir = vim.fn.getcwd(), -- メモのデフォルト保存先ディレクトリ
       default_ext = ".md",        -- デフォルトのファイル拡張子
+      auto_show_help = false,     -- メモ利用時にチートシートを自動表示するかどうか
     })
   end,
 }

@@ -3,6 +3,7 @@ local M = {}
 M.options = {
   memo_dir = vim.fn.getcwd(),
   default_ext = ".md",
+  auto_show_help = false,
 }
 
 function M.setup(opts)
