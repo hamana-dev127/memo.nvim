@@ -156,17 +156,18 @@ function M.show_help()
       max_width = width
     end
   end
-  vim.api.nvim_win_set_width(win, max_width + 8)
+  vim.api.nvim_win_set_width(win, max_width + 3)
   
+  vim.bo[buf].filetype = "markdown"
+  vim.bo[buf].modifiable = false
+  vim.bo[buf].bufhidden = "wipe"
+
+  -- Set window options AFTER filetype so that markdown filetype plugins don't override them
   vim.wo[win].number = false
   vim.wo[win].relativenumber = false
   vim.wo[win].signcolumn = "no"
   vim.wo[win].foldcolumn = "0"
   vim.wo[win].spell = false
-  
-  vim.bo[buf].filetype = "markdown"
-  vim.bo[buf].modifiable = false
-  vim.bo[buf].bufhidden = "wipe"
   
   vim.keymap.set("n", "q", ":q<CR>", { buffer = buf, silent = true, noremap = true })
 end
