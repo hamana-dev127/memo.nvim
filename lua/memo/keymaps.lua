@@ -140,4 +140,10 @@ function M.setup_buffer()
   end, { buffer = bufnr, expr = true, replace_keycodes = true, desc = "Smart Enter for Memo" })
 end
 
+function M.teardown_buffer()
+  local bufnr = vim.api.nvim_get_current_buf()
+  pcall(vim.keymap.del, "i", "<Tab>", { buffer = bufnr })
+  pcall(vim.keymap.del, "i", "<CR>", { buffer = bufnr })
+end
+
 return M

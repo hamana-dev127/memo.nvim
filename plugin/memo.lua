@@ -15,6 +15,11 @@ vim.api.nvim_create_user_command("MemoEnable", function()
   vim.notify("Memo.nvim: 現在のバッファで入力アシストが有効になりました！", vim.log.levels.INFO)
 end, { desc = "Enable Memo keymaps for current buffer" })
 
+vim.api.nvim_create_user_command("MemoDisable", function()
+  require("memo.keymaps").teardown_buffer()
+  vim.notify("Memo.nvim: 現在のバッファで入力アシストを無効にしました。", vim.log.levels.INFO)
+end, { desc = "Disable Memo keymaps for current buffer" })
+
 vim.api.nvim_create_user_command("MemoHelp", function()
   help.show_help()
 end, { desc = "Show markdown cheat sheet" })
