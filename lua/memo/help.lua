@@ -148,7 +148,15 @@ function M.show_help()
   
   local win = vim.api.nvim_get_current_win()
   vim.api.nvim_win_set_buf(win, buf)
-  vim.api.nvim_win_set_width(win, 50)
+  
+  local max_width = 0
+  for _, line in ipairs(cheat_sheet_content) do
+    local width = vim.fn.strdisplaywidth(line)
+    if width > max_width then
+      max_width = width
+    end
+  end
+  vim.api.nvim_win_set_width(win, max_width + 4)
   
   vim.bo[buf].filetype = "markdown"
   vim.bo[buf].modifiable = false
